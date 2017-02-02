@@ -4,12 +4,12 @@
     
     $name = $_POST["name"];
     $age = $_POST["age"];
-    $user = $_POST["user"];
-    $username = $_POST["username"];
     $password = $_POST["password"];
+    $username = $_POST["username"];
 
-    $statement = mysqli_prepare($con, "INSERT INTO user (name, user, age, password, username) VALUES (?, ?, ?, ?)");
-    mysqli_stmt_bind_param($statement, "siss", $name, $user, $age, $password, $username);
+
+    $statement = mysqli_prepare($con, "INSERT INTO user (name, age, password, username) VALUES (?, ?, ?, ?)");
+    mysqli_stmt_bind_param($statement, "siss", $name, $age, $password, $username);
     mysqli_stmt_execute($statement);
     
     $response = array();
