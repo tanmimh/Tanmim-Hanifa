@@ -60,9 +60,10 @@ public class loginActivity extends AppCompatActivity {
                                 intent.putExtra("age", age);
                                 intent.putExtra("username", username);
 
-                                loginActivity.this.startActivity(intent);
+                                Intent intent1 = new Intent(loginActivity.this, MainMenuActivity.class);
 
-
+                                //loginActivity.this.startActivity(intent);
+                                loginActivity.this.startActivity(intent1); //Start main menu activity
 
                             }else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(loginActivity.this);
