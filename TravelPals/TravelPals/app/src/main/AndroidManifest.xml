@@ -23,7 +23,11 @@
             android:exported="true"
         </activity>
         <activity android:name=".SearchActivity" />
-        <activity android:name=".MyPlanActivity" />
+        <activity android:name=".MyPlanActivity">
+        <intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".MessageActivity"></activity>
     </application>
 
