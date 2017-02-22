@@ -14,44 +14,12 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:layout_below="@+id/startDate"
-        android:layout_alignStart="@+id/startDate"
-        android:layout_marginTop="21dp"
-        android:id="@+id/endDate"
-        android:text="endDate" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="text"
         android:text="destination"
         android:ems="10"
         android:id="@+id/destination"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/startDate"
-        android:text="startDate"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/destination"
-        android:layout_alignStart="@+id/destination" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:text="description"
-        android:ems="10"
-        android:id="@+id/description"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/endDate" />
 
     <Button
         android:text="Add Plan"
@@ -69,13 +37,43 @@
         android:layout_alignEnd="@+id/button"
         android:id="@+id/button3" />
 
+    <TextView
+        android:text="result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:id="@+id/result"
+        android:layout_below="@+id/button3"
+        android:layout_alignStart="@+id/button3" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
+        android:inputType="date"
         android:ems="10"
-        android:id="@+id/result"
-        android:layout_below="@+id/button3"
-        android:layout_alignStart="@+id/description" />
+        android:id="@+id/startDate"
+        android:text="startDate"
+        android:layout_below="@+id/destination"
+        android:layout_alignStart="@+id/destination" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/endDate"
+        android:text="endDate"
+        android:layout_below="@+id/startDate"
+        android:layout_alignStart="@+id/startDate" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="description"
+        android:ems="10"
+        android:id="@+id/description"
+        android:layout_below="@+id/endDate"
+        android:layout_alignStart="@+id/endDate" />
 
 </RelativeLayout>

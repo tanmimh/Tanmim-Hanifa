@@ -65,13 +65,14 @@ public class MyPlanActivity extends AppCompatActivity {
                         for(int i=0; i<plans.length(); i++){
                             JSONObject plan = plans.getJSONObject(i);
 
-                           String destination = plan.getString("destination");
-                            String startDate = plan.getString("startDate");
-                            String endDate = plan.getString("endDate");
+                            String destination = plan.getString("destination");
+                            //String startDate = plan.getString("startDate");
+                           // String endDate = plan.getString("endDate");
                             String description = plan.getString("description");
-
-                            result.append(destination+ " " +startDate+" "+endDate+" "+description+ "" +
-                                    "\n" );
+//
+//                            result.append(destination + " " + startDate +" "+ endDate +" "+ description + "" +
+//                                    "\n" );
+                            result.append(destination + "  " +description + " " + "\n" );
 
                         }
                         result.append("===\n");
