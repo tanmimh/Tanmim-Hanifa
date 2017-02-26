@@ -5,6 +5,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.android.volley.Response;
@@ -25,10 +26,21 @@ public class MainMenuActivity extends AppCompatActivity {
         final ImageButton ibUserImageButton = (ImageButton) findViewById(R.id.ibUserImageButton);
 
 
+        Intent intent = getIntent();
+        final String username = intent.getStringExtra("username");
+        final String name = intent.getStringExtra("name");
+        final int age = intent.getIntExtra("age", -1);
+
+
+
+
         ibUserImageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent userIntent = new Intent(MainMenuActivity.this, UserAreaActivity.class);
+                userIntent.putExtra("name", name);
+                userIntent.putExtra("username", username);
+                userIntent.putExtra("age", age);
                 MainMenuActivity.this.startActivity(userIntent);
             }
         });

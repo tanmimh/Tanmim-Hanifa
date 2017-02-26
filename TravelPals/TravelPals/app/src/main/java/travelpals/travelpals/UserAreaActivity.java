@@ -17,10 +17,10 @@ public class UserAreaActivity extends AppCompatActivity {
         final EditText etName = (EditText) findViewById(R.id.etName);
 
 
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
-        int age = intent.getIntExtra("age", -1);
-        String username = intent.getStringExtra("username");
+        Intent userIntent = getIntent();
+        String name = userIntent.getStringExtra("name");
+        int age = userIntent.getIntExtra("age", -1);
+        String username = userIntent.getStringExtra("username");
 
         etUsername.setText(username);
         etName.setText(name);
