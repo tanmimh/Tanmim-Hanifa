@@ -56,5 +56,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 MainMenuActivity.this.startActivity(myPlanIntent);
             }
         });
+
+
     }
 }
