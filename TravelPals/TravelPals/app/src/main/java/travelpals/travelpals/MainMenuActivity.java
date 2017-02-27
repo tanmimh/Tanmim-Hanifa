@@ -29,7 +29,8 @@ public class MainMenuActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final String username = intent.getStringExtra("username");
         final String name = intent.getStringExtra("name");
-        final int age = intent.getIntExtra("age", -1);
+        final String dob = intent.getStringExtra("dob");
+        final String email = intent.getStringExtra("email");
 
 
 
@@ -40,7 +41,9 @@ public class MainMenuActivity extends AppCompatActivity {
                 Intent userIntent = new Intent(MainMenuActivity.this, UserAreaActivity.class);
                 userIntent.putExtra("name", name);
                 userIntent.putExtra("username", username);
-                userIntent.putExtra("age", age);
+                userIntent.putExtra("dob", dob);
+                userIntent.putExtra("email", email);
+
                 MainMenuActivity.this.startActivity(userIntent);
             }
         });

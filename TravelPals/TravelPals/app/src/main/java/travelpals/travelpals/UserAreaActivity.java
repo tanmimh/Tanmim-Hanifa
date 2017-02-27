@@ -13,18 +13,22 @@ public class UserAreaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_area);
 
         final EditText etUsername = (EditText) findViewById(R.id.etUsername);
-        final EditText etAge = (EditText) findViewById(R.id.etAge);
+        final EditText etDob = (EditText) findViewById(R.id.etDob);
         final EditText etName = (EditText) findViewById(R.id.etName);
+        final EditText etEmail = (EditText) findViewById(R.id.etEmail);
 
 
         Intent userIntent = getIntent();
         String name = userIntent.getStringExtra("name");
-        int age = userIntent.getIntExtra("age", -1);
+        String email = userIntent.getStringExtra("email");
+        String dob = userIntent.getStringExtra("dob");
         String username = userIntent.getStringExtra("username");
+
 
         etUsername.setText(username);
         etName.setText(name);
-        etAge.setText(age + "");
+        etDob.setText(dob);
+        etEmail.setText(email);
 
     }
 }
