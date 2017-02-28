@@ -52,19 +52,18 @@ public class loginActivity extends AppCompatActivity {
 
                             if(success){
                                 String name = jsonResponse.getString("name");
-                                int age = jsonResponse.getInt("age");
+                                String dob = jsonResponse.getString("dob");
                                 String username = jsonResponse.getString("username");
+                                String email = jsonResponse.getString("email");
 
-                                Intent intent = new Intent(loginActivity.this, UserAreaActivity.class);
+                                Intent intent = new Intent(loginActivity.this, MainMenuActivity.class);
                                 intent.putExtra("name", name);
-                                intent.putExtra("age", age);
+                                intent.putExtra("dob", dob);
                                 intent.putExtra("username", username);
+                                intent.putExtra("email", email);
 
-                                Intent intent1 = new Intent(loginActivity.this, MainMenuActivity.class);
 
-                                //loginActivity.this.startActivity(intent);
-                                loginActivity.this.startActivity(intent1); //Start main menu activity
-
+                                loginActivity.this.startActivity(intent);
                             }else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(loginActivity.this);
                                 builder.setMessage("Login failed")
