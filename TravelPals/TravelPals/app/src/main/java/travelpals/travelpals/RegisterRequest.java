@@ -12,6 +12,8 @@ import java.util.Map;
 public class RegisterRequest extends StringRequest {
 
     private static final String REGISTER_REQUEST_URL = "http://doc.gold.ac.uk/~thani001/travelpals/RegisterTDB.php";
+//    private static final String REGISTER_REQUEST_URL = "http://doc.gold.ac.uk/~thani001/travelpals/backphp/RegisterTDB.php";
+
     private Map<String, String> params;
 
     public RegisterRequest(String name, String username, String dob, String email, String password, Response.Listener<String> listener){

@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 RegisterActivity.this.startActivity(intent);
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                builder.setMessage("Registration failed")
+                                builder.setMessage("Registration failed. Username or email may already be in use.")
                                         .setNegativeButton("Try again", null)
                                         .create()
                                         .show();
