@@ -51,16 +51,16 @@ public class loginActivity extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if(success){
-//                                String name = jsonResponse.getString("name");
-//                                String dob = jsonResponse.getString("dob");
-//                                String username = jsonResponse.getString("username");
-//                                String email = jsonResponse.getString("email");
+                                String name = jsonResponse.getString("name");
+                                String dob = jsonResponse.getString("dob");
+                                String username = jsonResponse.getString("username");
+                                String email = jsonResponse.getString("email");
 //
-                                  Intent intent = new Intent(loginActivity.this, MainMenuActivity.class);
-//                                intent.putExtra("name", name);
-//                                intent.putExtra("dob", dob);
-//                                intent.putExtra("username", username);
-//                                intent.putExtra("email", email);
+                                Intent intent = new Intent(loginActivity.this, MainMenuActivity.class);
+                                intent.putExtra("name", name);
+                                intent.putExtra("dob", dob);
+                                intent.putExtra("username", username);
+                                intent.putExtra("email", email);
 
 
                                 loginActivity.this.startActivity(intent);
