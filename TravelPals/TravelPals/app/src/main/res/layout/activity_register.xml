@@ -32,6 +32,18 @@
         android:layout_below="@id/etName"
         android:layout_alignStart="@id/etName" />
 
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginBottom="10dp"
+        android:layout_alignStart="@+id/etDob"
+        android:entries="@array/gender"
+        android:id="@+id/gSpinner"
+        android:layout_below="@+id/etDob"
+        android:layout_alignEnd="@+id/etDob">
+    </Spinner>
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +53,7 @@
         android:hint="Email Address"
         android:layout_marginBottom="10dp"
         android:layout_alignStart="@id/etDob"
-        android:layout_below="@id/etDob"/>
+        android:layout_below="@id/gSpinner"/>
 
     <EditText
         android:layout_width="wrap_content"

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -28,6 +29,8 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
         final EditText etEmail = (EditText) findViewById(R.id.etEmail);
 
+        final Spinner gSpinner = (Spinner) findViewById(R.id.gSpinner);
+
         final Button btnRegister = (Button) findViewById(R.id.btnRegister);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String dob = etDob.getText().toString();
                 final String email = etEmail.getText().toString();
 
+                final String gender = gSpinner.getSelectedItem().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
 
@@ -65,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 };
 
-                RegisterRequest registerRequest = new RegisterRequest(name, username, dob, email, password, responseListener);
+                RegisterRequest registerRequest = new RegisterRequest(name, gender, username, dob, email, password, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
 

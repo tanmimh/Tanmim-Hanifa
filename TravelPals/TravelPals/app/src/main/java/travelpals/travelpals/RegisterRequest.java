@@ -16,7 +16,7 @@ public class RegisterRequest extends StringRequest {
 
     private Map<String, String> params;
 
-    public RegisterRequest(String name, String username, String dob, String email, String password, Response.Listener<String> listener){
+    public RegisterRequest(String name, String gender, String username, String dob, String email, String password, Response.Listener<String> listener){
         super(Method.POST, REGISTER_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("name", name);
@@ -24,6 +24,7 @@ public class RegisterRequest extends StringRequest {
         params.put("password", password);
         params.put("dob", dob + "");
         params.put("email", email);
+        params.put("gender", gender);
     }
 
     @Override
