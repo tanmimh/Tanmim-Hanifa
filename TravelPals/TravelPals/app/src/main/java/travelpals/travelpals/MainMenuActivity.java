@@ -32,6 +32,7 @@ public class MainMenuActivity extends AppCompatActivity {
         final String dob = intent.getStringExtra("dob");
         final String email = intent.getStringExtra("email");
 
+        final String gender = intent.getStringExtra("gender");
 
 
 
@@ -43,6 +44,8 @@ public class MainMenuActivity extends AppCompatActivity {
                 userIntent.putExtra("username", username);
                 userIntent.putExtra("dob", dob);
                 userIntent.putExtra("email", email);
+
+                userIntent.putExtra("gender", gender);
 
                 MainMenuActivity.this.startActivity(userIntent);
             }

@@ -24,6 +24,7 @@ public class RegisterRequest extends StringRequest {
         params.put("password", password);
         params.put("dob", dob + "");
         params.put("email", email);
+
         params.put("gender", gender);
     }
 

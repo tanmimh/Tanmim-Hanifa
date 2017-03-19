@@ -55,12 +55,15 @@ public class loginActivity extends AppCompatActivity {
                                 String dob = jsonResponse.getString("dob");
                                 String username = jsonResponse.getString("username");
                                 String email = jsonResponse.getString("email");
+                                String gender = jsonResponse.getString("gender");
+
 //
                                 Intent intent = new Intent(loginActivity.this, MainMenuActivity.class);
                                 intent.putExtra("name", name);
                                 intent.putExtra("dob", dob);
                                 intent.putExtra("username", username);
                                 intent.putExtra("email", email);
+                                intent.putExtra("gender", gender);
 
 
                                 loginActivity.this.startActivity(intent);

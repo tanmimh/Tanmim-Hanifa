@@ -9,14 +9,13 @@
     $email = $_POST["email"];
     $username = $_POST["username"];
     $password = $_POST["password"];
-    $gender = $_POST["gender"];
 
 
      function registerUser() {
-        global $connect, $name, $gender, $dob, $email, $username, $password;
+        global $connect, $name, $dob, $email, $username, $password;
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-        $statement = mysqli_prepare($connect, "INSERT INTO user (name, gender, dob, email, username, password) VALUES (?, ?, ?, ?, ?, ?)");
-        mysqli_stmt_bind_param($statement, "ssisss", $name, $gender, $dob, $email, $username, $passwordHash);
+        $statement = mysqli_prepare($connect, "INSERT INTO user (name, dob, email, username, password) VALUES (?, ?, ?, ?, ?)");
+        mysqli_stmt_bind_param($statement, "sisss", $name, $dob, $email, $username, $passwordHash);
         mysqli_stmt_execute($statement);
         mysqli_stmt_close($statement);     
     }

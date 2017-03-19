@@ -10,7 +10,7 @@
     mysqli_stmt_bind_param($statement, "s", $username);
     mysqli_stmt_execute($statement);
     mysqli_stmt_store_result($statement);
-    mysqli_stmt_bind_result($statement, $colUserID, $colEmail, $colGender, $colName, $colDob, $colPassword, $colUsername);
+    mysqli_stmt_bind_result($statement, $colUserID, $colEmail, $colName, $colDob, $colPassword, $colUsername);
     
     $response = array();
     $response["success"] = false;  
@@ -20,7 +20,6 @@
             $response["success"] = true;
             $response["id"] = $colUserID;
             $response["email"] = $colEmail;
-            $response["gender"] = $colGender;
             $response["name"] = $colName;
             $response["dob"] = $colDob;
             $response["username"] = $colUsername;  

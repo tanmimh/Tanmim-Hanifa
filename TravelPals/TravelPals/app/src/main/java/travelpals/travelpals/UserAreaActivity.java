@@ -17,6 +17,8 @@ public class UserAreaActivity extends AppCompatActivity {
         final EditText etName = (EditText) findViewById(R.id.etName);
         final EditText etEmail = (EditText) findViewById(R.id.etEmail);
 
+        final EditText etGender = (EditText) findViewById(R.id.etGender);
+
 
         Intent userIntent = getIntent();
         String name = userIntent.getStringExtra("name");
@@ -24,11 +26,16 @@ public class UserAreaActivity extends AppCompatActivity {
         String dob = userIntent.getStringExtra("dob");
         String username = userIntent.getStringExtra("username");
 
+        String gender = userIntent.getStringExtra("gender");
+
 
         etUsername.setText(username);
         etName.setText(name);
         etDob.setText(dob);
         etEmail.setText(email);
+
+        etGender.setText(gender);
+
 
     }
 }
