@@ -31,11 +31,14 @@ public class RegisterActivity extends AppCompatActivity {
 
         final Spinner gSpinner = (Spinner) findViewById(R.id.gSpinner);
 
+        final EditText etPasswordAgain = (EditText) findViewById(R.id.etPasswordAgain);
+
         final Button btnRegister = (Button) findViewById(R.id.btnRegister);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 final String name = etName.getText().toString();
                 final String username = etUsername.getText().toString();
                 final String password = etPassword.getText().toString();
@@ -44,37 +47,50 @@ public class RegisterActivity extends AppCompatActivity {
 
                 final String gender = gSpinner.getSelectedItem().toString();
 
-                Response.Listener<String> responseListener = new Response.Listener<String>(){
+                final String passwordAgain = etPasswordAgain.getText().toString();
 
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
 
-                            if(success){
-                                Intent intent = new Intent(RegisterActivity.this, loginActivity.class);
-                                RegisterActivity.this.startActivity(intent);
-                            } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                builder.setMessage("Username or email may already be in use.")
-                                        .setNegativeButton("Try again", null)
-                                        .create()
-                                        .show();
+                if((password).equals(passwordAgain)) {
+
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonResponse = new JSONObject(response);
+                                boolean success = jsonResponse.getBoolean("success");
+
+                                if (success) {
+                                    Intent intent = new Intent(RegisterActivity.this, loginActivity.class);
+                                    RegisterActivity.this.startActivity(intent);
+                                } else {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                                    builder.setMessage("Username or email may already be in use.")
+                                            .setNegativeButton("Try again", null)
+                                            .create()
+                                            .show();
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
-                    }
-                };
+                    };
 
-                RegisterRequest registerRequest = new RegisterRequest(name, gender, username, dob, email, password, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                queue.add(registerRequest);
+                    RegisterRequest registerRequest = new RegisterRequest(name, gender, username, dob, email, password, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                    queue.add(registerRequest);
+                } else {
+                    AlertDialog.Builder builder2 = new AlertDialog.Builder(RegisterActivity.this);
+                    builder2.setMessage("Passwords are not the same")
+                            .setNegativeButton("Try again", null)
+                            .create()
+                            .show();
+                }
 
 
             }
         });
+
     }
 }

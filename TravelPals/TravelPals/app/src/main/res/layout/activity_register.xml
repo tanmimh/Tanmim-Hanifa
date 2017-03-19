@@ -76,6 +76,16 @@
         android:layout_marginBottom="10dp"
         android:layout_below="@+id/etUsername"
         android:layout_alignStart="@+id/etUsername" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/etPasswordAgain"
+        android:layout_marginBottom="10dp"
+        android:hint="Re-enter password"
+        android:layout_below="@id/etPassword"
+        android:layout_alignStart="@+id/etPassword"/>
 
     <Button
         android:text="REGISTER"
@@ -83,7 +93,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnRegister"
         android:layout_marginBottom="7dp"
-        android:layout_below="@id/etPassword"
+        android:layout_below="@id/etPasswordAgain"
         android:layout_centerHorizontal="true" />
 
 
