@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.format.DateFormat;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,12 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class RegisterActivity extends AppCompatActivity {
+
+
 
 
 
@@ -29,6 +35,8 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+
 
         final EditText etDob = (EditText) findViewById(R.id.etDob);
         final EditText etName = (EditText) findViewById(R.id.etName);
@@ -44,6 +52,8 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         final Button btnRegister = (Button) findViewById(R.id.btnRegister);
+
+
 
         TextView tvTerms =(TextView)findViewById(R.id.tvTerms);
         tvTerms.setClickable(true);
@@ -67,6 +77,9 @@ public class RegisterActivity extends AppCompatActivity {
                 final String gender = gSpinner.getSelectedItem().toString();
 
                 final String passwordAgain = etPasswordAgain.getText().toString();
+
+                Date cDate = new Date();
+                String fDate = new SimpleDateFormat(dob).format(cDate);
 
                 if(name.isEmpty()) {
                     AlertDialog.Builder builder2 = new AlertDialog.Builder(RegisterActivity.this);
