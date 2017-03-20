@@ -4,10 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -17,6 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +40,19 @@ public class RegisterActivity extends AppCompatActivity {
 
         final EditText etPasswordAgain = (EditText) findViewById(R.id.etPasswordAgain);
 
+        final CheckBox cbTerms = (CheckBox) findViewById(R.id.cbTerms);
+
+
         final Button btnRegister = (Button) findViewById(R.id.btnRegister);
+
+        TextView tvTerms =(TextView)findViewById(R.id.tvTerms);
+        tvTerms.setClickable(true);
+        tvTerms.setMovementMethod(LinkMovementMethod.getInstance());
+        String text = "<a href='http://doc.gold.ac.uk/~thani001/travelpals/termsandcondition.html'> I agree to the terms and conditions </a>";
+        tvTerms.setText(Html.fromHtml(text));
+
+
+
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,36 +69,44 @@ public class RegisterActivity extends AppCompatActivity {
                 final String passwordAgain = etPasswordAgain.getText().toString();
 
 
-                if((password).equals(passwordAgain)) {
+                if((password).equals(passwordAgain))  {
+                    if(cbTerms.isChecked()) {
 
-                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
 
-                        @Override
-                        public void onResponse(String response) {
-                            try {
-                                JSONObject jsonResponse = new JSONObject(response);
-                                boolean success = jsonResponse.getBoolean("success");
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
+                                    boolean success = jsonResponse.getBoolean("success");
 
-                                if (success) {
-                                    Intent intent = new Intent(RegisterActivity.this, loginActivity.class);
-                                    RegisterActivity.this.startActivity(intent);
-                                } else {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                    builder.setMessage("Username or email may already be in use.")
-                                            .setNegativeButton("Try again", null)
-                                            .create()
-                                            .show();
+                                    if (success) {
+                                        Intent intent = new Intent(RegisterActivity.this, loginActivity.class);
+                                        RegisterActivity.this.startActivity(intent);
+                                    } else {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                                        builder.setMessage("Username or email may already be in use.")
+                                                .setNegativeButton("Try again", null)
+                                                .create()
+                                                .show();
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
                             }
-                        }
-                    };
+                        };
 
-                    RegisterRequest registerRequest = new RegisterRequest(name, gender, username, dob, email, password, responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                    queue.add(registerRequest);
+                        RegisterRequest registerRequest = new RegisterRequest(name, gender, username, dob, email, password, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                        queue.add(registerRequest);
+                    } else {
+                        AlertDialog.Builder builder2 = new AlertDialog.Builder(RegisterActivity.this);
+                        builder2.setMessage("You have not agreed to the terms and conditions")
+                                .setNegativeButton("OK", null)
+                                .create()
+                                .show();
+                    }
                 } else {
                     AlertDialog.Builder builder2 = new AlertDialog.Builder(RegisterActivity.this);
                     builder2.setMessage("Passwords are not the same")
