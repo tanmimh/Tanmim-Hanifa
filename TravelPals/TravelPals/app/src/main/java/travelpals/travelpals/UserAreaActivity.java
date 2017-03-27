@@ -3,6 +3,7 @@ package travelpals.travelpals;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 public class UserAreaActivity extends AppCompatActivity {
@@ -11,6 +12,11 @@ public class UserAreaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_area);
+
+        setTitle("Profile");
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
 
         final EditText etUsername = (EditText) findViewById(R.id.etUsername);
         final EditText etDob = (EditText) findViewById(R.id.etDob);

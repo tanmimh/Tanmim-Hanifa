@@ -15,8 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:text="destination"
-        android:ems="10"
+        android:hint="Destination"
+        android:ems="12"
+        android:layout_marginTop="20dp"
         android:id="@+id/destination"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -26,54 +27,63 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button"
+        android:layout_marginTop="3dp"
         android:layout_below="@+id/description"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/description"
+        android:layout_alignEnd="@+id/description" />
 
     <Button
         android:text="show"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/button3"
         android:layout_below="@+id/button"
         android:layout_alignEnd="@+id/button"
-        android:id="@+id/button3" />
+        android:layout_marginTop="15dp"
+        android:layout_alignStart="@+id/button" />
 
     <TextView
         android:text="result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/result"
         android:layout_below="@+id/button3"
-        android:layout_alignStart="@+id/button3" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
-        android:ems="10"
+        android:ems="12"
         android:id="@+id/startDate"
-        android:text="startDate"
+        android:hint="Start Date: YYYY-MM-DD"
         android:layout_below="@+id/destination"
-        android:layout_alignStart="@+id/destination" />
+        android:layout_alignStart="@+id/destination"
+        android:layout_marginTop="10dp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
-        android:ems="10"
+        android:ems="12"
         android:id="@+id/endDate"
-        android:text="endDate"
+        android:hint="End Date: YYYY-MM-DD"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/startDate"
         android:layout_alignStart="@+id/startDate" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:text="description"
-        android:ems="10"
+        android:inputType="textMultiLine"
+        android:isScrollContainer="true"
+        android:minHeight="100dp"
+        android:hint="Description"
+        android:ems="12"
         android:id="@+id/description"
         android:layout_below="@+id/endDate"
-        android:layout_alignStart="@+id/endDate" />
+        android:layout_alignStart="@+id/endDate"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>

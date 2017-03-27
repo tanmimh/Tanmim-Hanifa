@@ -14,22 +14,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:ems="10"
+        android:ems="12"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="95dp"
         android:id="@+id/etUsername"
-        android:hint="Username" />
+        android:hint="Username"
+        android:layout_alignStart="@+id/tvLinktoRegister"
+        android:layout_alignEnd="@+id/tvLinktoRegister" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:ems="10"
+        android:ems="12"
         android:layout_marginTop="18dp"
         android:id="@+id/etPassword"
         android:layout_below="@+id/etUsername"
         android:layout_alignStart="@+id/etUsername"
-        android:hint="Password" />
+        android:hint="Password"
+        android:layout_alignEnd="@+id/etUsername" />
 
     <Button
         android:text="LOG IN"
